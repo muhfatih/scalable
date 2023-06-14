@@ -6,7 +6,6 @@ require('dotenv').config()
 const cloudinary = require('./cloudinary')
 const { Pool } = require('pg');
 const app = express();
-const port = 8080;
 const upload = multer({ dest: "./image/" });
 
 app.use(express.json())
@@ -129,6 +128,6 @@ app.get('/resize/:imageId', async (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is listening on port ${process.env.PORT}`);
 });
